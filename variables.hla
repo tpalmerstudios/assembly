@@ -1,0 +1,19 @@
+program variables;
+#include ("stdlib.hhf")
+
+static
+	init:		int32 := 8;
+	notInit:	int32;
+	isBool:		boolean := true;
+	wChar:		char := 'W';
+
+begin variables;
+	// Display intialized variables values
+	stdout.put ("init value: ", init, nl);
+	stdout.put ("Enter value  ");
+	stdin.get (notInit);
+
+	stdout.put ("You entered: ", notInit, nl);
+
+
+end variables;
