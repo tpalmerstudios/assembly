@@ -4,8 +4,6 @@ program variables;
 static
 	init:		int32 := 8;
 	notInit:	int32;
-	isBool:		boolean := true;
-	wChar:		char := 'W';
 
 begin variables;
 	// Display intialized variables values
