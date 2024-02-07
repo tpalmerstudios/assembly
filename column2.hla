@@ -1,0 +1,30 @@
+// Author: Tim Palmer
+// Created On: 02/07/2024
+// Last Modified: 02/07/2024
+// Program: column2
+// Usage: ./column2
+// Description: another example of HLA Standard Library using stdlib.put
+
+program column2;
+#include ("stdlib.hhf")
+
+static
+	small:		int32;
+	columns:	int8;
+
+begin column2;
+	mov (96, small);
+	mov (0, columns);
+	while (small > 0) do
+		if (columns = 8) then
+			stdout.newln();
+			mov (0, columns);
+		endif;
+		stdout.put (small:5);
+		sub (1, small);
+		add (1, columns);
+	endwhile;
+	stdout.put (nl);
+end column2;
+
+

@@ -1,0 +1,37 @@
+// Author: Tim Palmer
+// Created On: 02/07/2024
+// Last Modified: 02/07/2024
+// Program: getc
+// Usage: ./getc
+// Description:
+program getc;
+#include ("stdlib.hhf")
+
+var
+	counter:	int32;
+
+begin getc;
+	// Repeats if user wants
+	repeat
+		mov (14, counter);
+		while (counter > 0) do
+			stdout.put (counter:3);
+			sub (1, counter);
+		endwhile;
+		stdout.put (nl, nl, "Do you wish to see it again? (y/n): ");
+		forever
+
+			stdin.readLn();
+			stdin.getc();
+			breakif (al = 'n');
+			breakif (al = 'y');
+			stdout.put ("Error, please enter only 'y' or 'n': ");
+
+		endfor;
+		stdout.newln();
+
+	until (al = 'n');
+
+end getc;
+
+
