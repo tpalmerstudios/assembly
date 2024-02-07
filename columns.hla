@@ -1,0 +1,32 @@
+// Author: Tim Palmer
+// Created On: 02/07/2024
+// Last Modified: 02/07/2024
+// Program: Columns
+// Usage: ./columns
+// Description: shows how to use HLAs standard library putXXXSize() functions
+
+program columns;
+#include ("stdlib.hhf")
+
+var
+	small:		int32;
+	column:	int8;
+
+begin columns;
+	mov (96, small);
+	mov (0, column);
+	while (small > 0) do
+		if (column = 8) then
+			stdout.newln();
+			mov (0, column);
+		endif;
+		stdout.puti32Size (small, 9, ' ');
+		sub (1, small);
+		add (1,  column);
+
+	endwhile;
+	stdout.newln();
+
+end columns;
+
+
