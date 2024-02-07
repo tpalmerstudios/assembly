@@ -1,0 +1,45 @@
+program movsub;
+#include ("stdlib.hhf")
+
+static
+	eight:		int8	:= -8;
+	sixteen:	int16	:= -16;
+	threetwo:	int32	:= -32;
+
+begin movsub;
+	// Print previous variables
+	stdout.put
+	(
+		nl,
+		"Initialized values: eight=", eight,
+		", sixteen=", sixteen,
+		", threetwo=", threetwo,
+		nl
+	);
+	// Get absolute values and print them
+
+	mov (0, al);
+	sub (eight, al);
+	mov (al, eight);
+
+	mov (0, ax);
+	sub (sixteen, ax);
+	mov (ax, sixteen);
+
+	mov (0, eax);
+	sub (threetwo, eax);
+	mov (eax, threetwo);
+
+	stdout.put
+	(
+		nl,
+		"After negation: eight=", eight,
+		", sixteen=", sixteen,
+		", threetwo=", threetwo,
+		nl
+	);
+
+	add (32323200, threetwo);
+	stdout.put (nl, "After add: threetwo=", threetwo, nl);
+
+end movsub;
