@@ -4,14 +4,25 @@ program variables;
 static
 	init:		int32 := 8;
 	notInit:	int32;
+	isTrue:		boolean;
+	bFalse:		boolean := false;
+	cInit:		char := 'f';
+	cChar:		char;
+
 
 begin variables;
 	// Display intialized variables values
-	stdout.put ("init value: ", init, nl);
-	stdout.put ("Enter value  ");
+	stdout.put ("Initialized Int Value: ", init, nl);
+	stdout.put ("Initialized Boolean Value: ", bFalse, nl);
+	stdout.put ("Initialized Character Value: ", cInit, nl);
+	stdout.put ("Enter Integer Value  ");
 	stdin.get (notInit);
+	stdout.put ("Enter Character Value  ");
+	stdin.get (cChar);
+
 
 	stdout.put ("You entered: ", notInit, nl);
-
+	stdout.put ("You entered: ", cChar, nl);
+	stdout.put ("You entered: ", isTrue, nl);
 
 end variables;
