@@ -1,0 +1,38 @@
+// Author: Tim Palmer
+// Created On: 02/07/2024
+// Last Modified: 02/07/2024
+// Program: badinput
+// Usage: ./badinput
+// Description: another example of try catch
+program badinput;
+
+#include ("stdlib.hhf")
+
+static
+	input:	int32;
+
+begin badinput;
+	forever
+
+		try
+			stdout.put ("Enter an integer value: ");
+			stdin.get (input);
+			stdout.put ("The first input value was: ", input, nl);
+			break;
+
+		exception (ex.ValueOutOfRange);
+			stdout.put ("The Value was too large, re-enter.", nl);
+
+		exception (ex.ConversionError);
+			stdout.put ("The input contained illegal characters, re-enter." nl);
+		endtry;
+
+	endfor;
+
+	stdout.put ("Enter another number: ");
+	stdin.get (input);
+	stdout.put ("The new number is: ", input, nl);
+
+end badinput;
+
+
