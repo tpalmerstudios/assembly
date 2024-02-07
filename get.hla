@@ -1,0 +1,39 @@
+// Author: Tim Palmer
+// Created On: 02/07/2024
+// Last Modified: 02/07/2024
+// Program: get
+// Usage: ./get
+// Description: more examples of HLA Standard Lib Input
+program get;
+
+#include ("stdlib.hhf")
+static
+	bite:	int8;
+	double:	int16;
+	wurd:	int32;
+
+begin get;
+	stdout.put ("Enter a integer between -128 and +127: ");
+	stdin.geti8();
+	mov (al, bite);
+
+	stdout.put ("Enter a integer between -32768 and +32767: ");
+	stdin.geti16();
+	mov (ax, double);
+
+	stdout.put ("Enter a integer between +/- 2 Billion: ");
+	stdin.geti32();
+	mov (eax, wurd);
+
+	stdout.put
+	(
+		nl,
+		"The numbers you entered:", nl, nl,
+		"Eight-bit: ", bite:12, nl,
+		"16-bit:    ", double:12, nl,
+		"32-bit:    ", wurd:12, nl
+	);
+
+end get;
+
+
