@@ -1,0 +1,31 @@
+program control;
+#include ("stdlib.hhf")
+
+static
+	input:	char;
+
+begin control;
+	while (!(al = 1)) do
+		stdout.put ("Input a character: ");
+		stdin.get (input);
+
+		if (input in 'a'..'z') then
+			stdout.put ("Lowercase Character", nl);
+			mov (1, al);
+
+		elseif (input in 'A'..'Z') then
+			stdout.put ("Uppercase Character", nl);
+			mov (1, ah);
+
+		elseif (input in '0'..'9') then
+			stdout.put ("Number", nl);
+			mov (1, bl);
+
+		else
+			stdout.put ("Something besides a letter or number was entered.", nl);
+			mov (1, bh);
+
+		endif;
+	endwhile;
+end control;
+
