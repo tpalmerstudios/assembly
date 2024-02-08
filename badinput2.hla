@@ -1,0 +1,44 @@
+// Author: Tim Palmer
+// Created On: 02/08/2024
+// Last Modified: 02/08/2024
+// Program: badinput2
+// Usage: ./badinput2
+// Description: another example of try-exceptions (with unprotected now)
+program badinput2;
+
+#include ("stdlib.hhf")
+
+static
+	input:	int32;
+
+begin badinput2;
+
+forever
+	try
+		
+		stdout.put ("Enter an integer value: ");
+		stdin.get (input);
+		stdout.put ("The first input value was: ", input, nl);
+
+	unprotected
+
+		break;
+	
+	exception (ex.ValueOutOfRange)
+
+		stdout.put ("The value was too large, re-enter." nl);
+
+	exception (ex.ConversionError)
+		stdout.put ("The input contained illegal characters, re-enter." nl);
+
+	endtry;
+
+endfor;
+
+stdout.put ("Enter another number: ");
+stdin.get (input);
+stdout.put ("The new number is: ", input, nl);
+
+end badinput2;
+
+

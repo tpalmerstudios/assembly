@@ -4,6 +4,7 @@
 // Program: badinput
 // Usage: ./badinput
 // Description: another example of try catch
+
 program badinput;
 
 #include ("stdlib.hhf")
