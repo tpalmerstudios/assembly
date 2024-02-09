@@ -1,0 +1,23 @@
+// Author: Tim Palmer
+// Created On: 02/05/2024
+// Last Modified: 02/05/2024
+// Usage: ./binary-convert
+// (Potential Usage: ./binary-convert {-b|-d} X
+// where X is a number either in binary or decimal
+// Description: a converter of digits
+program binary-convert;
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	input:	int32;
+	output:	int32;
+
+// BEGIN
+begin binary-convert;
+	stdin.get (input);
+
+
+// END
+end binary-convert;
+
