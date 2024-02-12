@@ -1,0 +1,23 @@
+// Author: Tim Palmer
+// Created On: 02/12/2024
+// Last Modified: 02/12/2024
+// Usage: ./d2h
+// Description: Decimal to Hex
+program d2h;
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	value:	int32;
+
+// BEGIN
+begin d2h;
+	stdout.put ("Input a decimal value: ");
+	stdin.get (value);
+	mov (value, eax);
+	stdout.put ("The value ", value, "converted to hex is $", eax, nl);
+
+// END
+end d2h;
+
+

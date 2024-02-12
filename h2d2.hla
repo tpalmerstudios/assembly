@@ -1,0 +1,17 @@
+// Author: Tim Palmer
+// Created On: 02/12/2024
+// Last Modified: 02/12/2024
+// Usage: ./h2d2
+// Description: Convert a hex to decimal base
+program h2d2;
+#include ("stdlib.hhf")
+// BEGIN
+begin h2d2;
+	stdout.put ("Input a hexadecimal value: ");
+	stdin.get (ebx);
+	stdout.put ("The value $", ebx, " converted to decimal is ");
+	stdout.puti32 (ebx);
+	stdout.newln ();
+
+// END
+end h2d2;
