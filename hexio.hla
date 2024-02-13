@@ -1,0 +1,27 @@
+// Author: Tim Palmer
+// Created On: 2024-02-13 08:32:01
+// Last Modified: 2024-02-13 08:32:01
+// Usage: ./hexio
+// Description: Hex to dec
+
+program hexio;
+
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	input:	int32;
+
+
+// BEGIN
+begin hexio;
+	stdout.put ("Enter a hexadecimal value: ");
+	stdin.getu32();
+	mov (eax, input);
+	stdout.put ("The value you entered was $" );
+	stdout.putu32 (input);
+	stdout.newln();
+
+// END
+end hexio;
+

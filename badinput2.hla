@@ -25,7 +25,6 @@ forever
 		break;
 	
 	exception (ex.ValueOutOfRange)
-
 		stdout.put ("The value was too large, re-enter." nl);
 
 	exception (ex.ConversionError)
