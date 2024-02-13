@@ -1,0 +1,27 @@
+// Author: Tim Palmer
+// Created On: 2024-02-13 09:46:21
+// Last Modified: 2024-02-13 09:46:21
+// Usage:./unsign
+// Description:
+
+program unsign;
+
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	input:	uns16;
+
+// BEGIN
+begin unsign;
+	stdout.put ("Enter an integer between 32,768 and 65,535: ");
+	stdin.getu16();
+	mov (ax, input);
+
+	stdout.put ("You entered ", input, ". If you treat this as a signed integer, it is ");
+	stdout.puti16 (input);
+	stdout.newln ();
+
+// END
+end unsign;
+

@@ -1,0 +1,39 @@
+// Author: Tim Palmer
+// Created On: 2024-02-13 09:28:23
+// Last Modified: 2024-02-13 09:28:23
+// Usage:./complement
+// Description:
+
+program complement;
+
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	posValue:	int8;
+	negValue:	int8;
+
+// BEGIN
+begin complement;
+	stdout.put ("Enter an integer between 0 and 127: ");
+	stdin.get (posValue);
+
+	mov (posValue, al);
+	stdout.put (nl, "Value in other format: $", al, nl);
+
+	not (al);
+	stdout.put (nl, "Invert all the bits: $", al, nl);
+	add (1, al);
+	stdout.put ("Add one: $", al, nl);
+	mov (al, negValue);
+	stdout.put ("Result in decimal: ", negValue, nl);
+
+	stdout.put (nl, "Now do the same thing with the NEG instruction: ", nl);
+	mov (posValue, al);
+	neg (al);
+	mov (al, negValue);
+	stdout.put ("Hex result = $", al, nl);
+	stdout.put ("Decimal result = ", negValue, nl);
+// END
+end complement;
+

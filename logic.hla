@@ -1,0 +1,41 @@
+// Author: Tim Palmer
+// Created On: 2024-02-13 08:55:27
+// Last Modified: 2024-02-13 08:55:27
+// Usage: ./logic
+// Description:
+
+program logic;
+
+#include ("stdlib.hhf")
+
+// BEGIN
+begin logic;
+
+	stdout.put ("Input left operand: ");
+	stdin.get (eax);
+	stdout.put ("Input right operand: ");
+	stdin.get (ebx);
+
+	mov (eax, ecx);
+	and (ebx, ecx);
+	stdout.put ("$", eax, " and $", ebx, " = $", ecx, nl);
+
+	mov (eax, ecx);
+	or (ebx, ecx);
+	stdout.put ("$", eax, " or $", ebx, " = $", ecx, nl);
+
+	mov (eax, ecx);
+	xor (ebx, ecx);
+	stdout.put ("$", eax, " xor $", ebx, " = $", ecx, nl);
+
+	mov (eax, ecx);
+	not (ecx);
+	stdout.put ("not $", eax, " = $", ecx, nl);
+
+	mov (ebx, ecx);
+	not (ecx);
+	stdout.put ("not $", ebx, " = $", ecx, nl);
+
+// END
+end logic;
+

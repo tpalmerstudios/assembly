@@ -1,0 +1,7 @@
+neg (dest);
+mov (src, dest);
+and (src, dest);
+or (src, dest);
+xor (src, dest);
+not (dest);
+
