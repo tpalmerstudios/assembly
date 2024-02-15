@@ -1,0 +1,85 @@
+// Author: Tim Palmer
+// Created On: 2024-02-15 06:01:37
+// Last Modified: 2024-02-15 06:01:37
+// Usage: ./pack
+// Description: pack dates into a word
+
+program pack;
+#include ("stdlib.hhf")
+#include ("excepts.hhf")
+
+// VARIABLES
+static
+	day:		uns8;
+	month:		uns8;
+	year:		uns8;
+	flagged:		boolean	:=	true;
+
+	packedDate:	word;
+
+// BEGIN
+begin pack;
+
+while (flagged) do
+		stdout.put ("Enter the current month,day, and year: ");
+	try
+		stdin.get (month, day, year);
+		mov (true, flagged);
+	anyexception
+		stdout.put ("Exception Raised!", nl);
+		mov (true, flagged);
+
+	endtry;
+		// 15 14 13 12 11 10 09 08 07 06 05 04 03 02 01 00
+		//  m  m  m  m  d  d  d  d  d  y  y  y  y  y  y  y
+
+		mov (0, ax);
+		mov (ax, packedDate);
+		if (month > 12) then
+			stdout.put ("Month value is too large", nl);
+
+		elseif (month = 0) then
+			stdout.put ("Month value must be in range 1-12", nl);
+
+		elseif (day > 31) then
+			stdout.put ("Day value is too large", nl);
+
+		elseif (day = 0) then
+			stdout.put ("Day value must be in the range 1-31", nl);
+
+		elseif (year > 99) then
+			stdout.put ("Year value must be in the range of 0-99", nl);
+
+		else
+			mov (month, al);
+			shl (5, ax);
+			or (day, al);
+			shl (7, ax);
+			or (year, al);
+			mov (ax, packedDate);
+
+			mov (false, flagged);
+		endif;
+
+endwhile;
+
+	stdout.put ("Packed data = 0x", packedDate, nl);
+
+	mov (packedDate, ax);
+	and ($7f, al);
+	mov (al, year);
+
+	mov (packedDate, ax);
+	shr (7, ax);
+	and ( %1_1111, al);
+	mov (al, day);
+
+	mov (packedDate, ax);
+	rol (4, ax);
+	and (%1111, al);
+	mov (al, month);
+
+	stdout.put ("The date is ", month, "/", day, "/", year, nl);
+// END
+end pack;
+

@@ -1,0 +1,38 @@
+// Author: Tim Palmer
+// Created On: 2024-02-15 04:42:54
+// Last Modified: 2024-02-15 04:42:54
+// Usage: ./extend2
+// Description: Sign Extensions using movsx()
+
+program extend2;
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	eight:		int8;
+	sixteen:	int16;
+	threetwo:	int32;
+
+// BEGIN
+begin extend2;
+	stdout.put ("Enter a small negative number: ");
+	stdin.get (eight);
+	mov (eight, al);
+	stdout.put ("You entered: ", eight, ": 0x", al, nl, nl);
+	cbw ();
+	mov (ax, sixteen);
+	stdout.put ("Sign extension using CBW and CWDE", nl);
+	stdout.put ("16-bit sign extension: ", sixteen, ":      0x", ax, nl);
+	cwde ();
+	mov (eax, threetwo);
+	stdout.put ("32-bit sign extension: ", threetwo, ": 0x", eax, nl, nl);
+	stdout.put ("Sign extension using MOVSX", nl);
+	movsx (eight, ax);
+	mov (ax, sixteen);
+	stdout.put ("16-bit sign extension: ", sixteen, ":      0x", ax, nl);
+	movsx (eight, eax);
+	mov (eax, threetwo);
+	stdout.put ("32-bit sign extension: ", threetwo, ": 0x", eax, nl);
+// END
+end extend2;
+

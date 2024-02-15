@@ -5,3 +5,34 @@ or (src, dest);
 xor (src, dest);
 not (dest);
 
+cbw (); AL 8 - AX 16
+cwd (); AX 16 - DX:AX 32
+cdwe (); AX 16 - EAX 32
+cdq (); EAX 32 - EDX:EAX 32
+
+movsx (src, dest); mov + sign extension; dest must be larger than src
+*movzx (); but that may be a misprint
+
+(NOTE: @c flag is set if count is 1. Undefined if count is not 1)
+shl (count, dest); count= {0 -> dest.size -1} count can also be the content of CL reg
+shr (count, dest);  see above
+sar (count, dest); arithmetic shift right - keeps first bit for sign
+(NOTE: @c flag and rotated bit are equivalent. They both move.)
+rol (count, dest); shifts but move the dropped bit to other end
+ror (count, dest); see above
+
+(NOTE: @c flag moves to other end)
+rcl (count, dest); shifts with carry flag as an intermediary
+rcr (count, dest); see above
+
+cld (); direction = 0
+std (); direction = 1
+cli (); interrupt = 0
+sti (): interrupt = 1
+clc (): carry = 0
+stc (): carry = 1
+cmc (); carry = flipped
+sahf (); AH is put as the lowest 8 bits of EFLAGS
+lahf () EFLAGS lowest 8 becomes AH
+
+
