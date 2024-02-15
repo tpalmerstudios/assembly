@@ -1,0 +1,39 @@
+// Author: Tim Palmer
+// Created On: 2024-02-15 03:19:51
+// Last Modified: 2024-02-15 03:19:51
+// Usage:./extend
+// Description: Extension of two's-complement
+
+program extend;
+
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	quad:		int64;
+
+// BEGIN
+begin extend;
+	stdout.put ("Input a decimal value -128 - +127: ");
+	stdin.geti8 ();
+	stdout.put ("Original Value in AL: ", al, nl);
+	stdout.put ("Original Value in Variable: ", quad, nl);
+	cbw();
+	cwd();
+	cwde();
+	cdq();
+	stdout.put ("New Value in AX: ", ax, nl);
+	stdout.put ("New Value in DX:AX: ");
+	stdout.putd (dx:ax);
+	stdout.newln ();
+	stdout.put ("New Value in EAX: ", eax, nl);
+	stdout.put ("New Value in EDX:EAX ");
+	stdout.putq (edx:eax);
+	stdout.newln ();
+	mov (edx:eax, quad);
+	stdout.put ("New Value in Variable ", quad, nl);
+
+
+// END
+end extend;
+

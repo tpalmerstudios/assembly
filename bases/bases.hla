@@ -1,0 +1,25 @@
+// Author: Tim Palmer
+// Created On: 2024-02-15 01:55:27
+// Last Modified: 2024-02-15 01:55:27
+// Usage: ./bases 
+// Future Usage: ./bases -{b|h|d} {number}
+// Description:
+
+program bases;
+
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	input:	int32;
+	base:	int32;
+
+// BEGIN
+begin bases;
+	stdout.put ("Base (h/d/b): ");
+	stdin.get (ebx);
+	mov (ebx, base);
+	
+// END
+end bases;
+
