@@ -1,0 +1,22 @@
+// Author: Tim Palmer
+// Created On: 2024-02-15 10:13:55
+// Last Modified: 2024-02-15 10:13:55
+// Usage: ./eol
+// Description:
+
+program eol;
+#include ("stdlib.hhf")
+
+// BEGIN
+begin eol;
+	stdout.put ("Enter a short line of text: ");
+	stdin.flushInput ();
+	repeat
+		stdin.getc ();
+		stdout.putc (al);
+		stdout.put ("=0x", al, " ");
+	until (stdin.eoln ());
+
+// END
+end eol;
+

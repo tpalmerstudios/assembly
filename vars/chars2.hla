@@ -1,0 +1,28 @@
+// Author: Tim Palmer
+// Created On: 2024-02-15 10:09:16
+// Last Modified: 2024-02-15 10:09:16
+// Usage: ./chars2
+// Description:
+
+program chars2;
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	c:char;
+
+// BEGIN
+begin chars2;
+	stdout.put ("Enter a character: ");
+	stdin.get (c);
+	if (c >= 'a') then
+		if (c <= 'z') then
+			and ($5f, c);
+		endif;
+	endif;
+
+	stdout.put ("The character: ", al, nl, "Uppercase: '", c, "'", nl);
+
+// END
+end chars2;
+

@@ -35,4 +35,24 @@ cmc (); carry = flipped
 sahf (); AH is put as the lowest 8 bits of EFLAGS
 lahf () EFLAGS lowest 8 becomes AH
 
+(NOTE: Only use 32 bit regs or constant - unless building a double or doing 2 words)
+(Intentionally PUSH + POP in wrong order to swap order possibly)
+push (reg16|32);
+push (var16|32);
+pushw (constant16|32);
+pushd (constant16|32);
+
+(Don't use - Push all regs onto stack)
+pusha - popa - 16 bit regs
+pushad - popad - 32 bit regs
+
+pushf, pushfd EFLAGS 16 bit
+popf, popfd EFLAGS 32 bit
+
+inc (mem/reg);
+dec (mem/reg);
+
+lea (reg32, memory_address_or_operands); puts an address in reg32
+(NOTE: & only works on static var)
+
 

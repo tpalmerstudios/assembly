@@ -1,0 +1,28 @@
+// Author: Tim Palmer
+// Created On: 2024-02-15 23:00:36
+// Last Modified: 2024-02-15 23:00:36
+// Usage: ./address
+// Description:
+
+program address;
+
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	i:	int8; @nostorage;
+		byte 0, 91, 2, 3;
+
+// BEGIN
+begin address;
+	stdout.put
+	(
+		"i[0]=", i[0], nl,
+		"i[1]=", i[1], nl,
+		"i[2]=", i[2], nl,
+		"i[3]=", i[3], nl
+	);
+
+// END
+end address;
+

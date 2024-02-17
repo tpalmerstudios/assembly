@@ -1,0 +1,21 @@
+// Author: Tim Palmer
+// Created On: 2024-02-15 23:10:38
+// Last Modified: 2024-02-15 23:10:38
+// Usage:
+// Description:
+program bad;
+// VARIABLES
+static
+	eight:		int8;
+	sixteen:	int16;
+	threetwo:	int32;
+
+// BEGIN
+begin bad;
+	mov ((type int32 eight), eax);
+	mov ((type byte sixteen), al);
+	mov ((type word threetwo), ax);
+
+// END
+end bad;
+

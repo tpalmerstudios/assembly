@@ -1,0 +1,33 @@
+// Author: Tim Palmer
+// Created On: 2024-02-15 10:01:17
+// Last Modified: 2024-02-15 10:01:17
+// Usage: ./chars
+// Description:
+
+program charDemo;
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+
+// BEGIN
+begin charDemo;
+
+	stdout.put ("Enter a character: ");
+	stdin.getc ();
+	if (al >= 'a' ) then
+		if (al <= 'z') then
+			and ($5f, al);
+		endif;
+	endif;
+	stdout.put 
+	(
+		"The character you entered, possibly, ", al, nl,
+		"Converted to uppercase, '"
+	);
+	stdout.putc (al);
+	stdout.put ("'", nl);
+
+// END
+end charDemo;
+
