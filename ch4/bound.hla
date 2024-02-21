@@ -1,0 +1,42 @@
+// Author: Tim Palmer
+// Created On: 2024-02-21 07:59:50
+// Last Modified: 2024-02-21 07:59:50
+// Usage: ./boundDemo
+// Description:
+
+program boundDemo;
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	input:	int32;
+	good:	boolean;
+
+// BEGIN
+begin boundDemo;
+	repeat
+		mov (false, good);
+
+		try
+			stdout.put ("Enter an integer between 1 and 30: ");
+			stdin.flushInput ();
+			stdin.geti32 ();
+
+			mov (eax, input);
+			bound (eax, 1, 30);
+			mov (true, good);
+		exception (ex.ConversionError)
+			stdout.put ("Illegal numeric format, re-enter", nl);
+		exception (ex.ValueOutOfRange)
+			stdout.put ("Value is *way* too big", nl);
+		exception (ex.BoundInstr)
+
+			stdout.put ("Value was ", input, ", it must be betwen 1 and 10, re-enter", nl);
+		endtry;
+
+	until (good);
+	stdout.put ("The value you entered, ", input, " is valid.", nl);
+
+// END
+end boundDemo;
+

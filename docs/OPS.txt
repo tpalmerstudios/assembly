@@ -39,8 +39,11 @@ lahf () EFLAGS lowest 8 becomes AH
 (Intentionally PUSH + POP in wrong order to swap order possibly)
 push (reg16|32);
 push (var16|32);
-pushw (constant16|32);
-pushd (constant16|32);
+pushw (constant16);
+pushd (constant32);
+
+pop (reg16|32);
+pop (var16|32);
 
 (Don't use - Push all regs onto stack)
 pusha - popa - 16 bit regs
@@ -55,4 +58,11 @@ dec (mem/reg);
 lea (reg32, memory_address_or_operands); puts an address in reg32
 (NOTE: & only works on static var)
 
+(NOTE: Destination is always a register of the same size as the source)
+(NOTE: Source can be a register, constant, or memory data *including addresses if stored in the address* No 8 bit operands)
+(Overflow will set Carry and Overflow flags)
+intmul (constant|reg|mem, destreg16|32); destreg = src * destreg;
+intmul (constant, src16|32, destreg16|32); destreg = src * constant; (src cannot be constant)
 
+bound ( reg16|32, mem16|32[2]); Bounds are unsigned-raises #BRupon failure
+into (); raises #OF

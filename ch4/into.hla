@@ -1,0 +1,43 @@
+// Author: Tim Palmer
+// Created On: 2024-02-21 09:00:34
+// Last Modified: 2024-02-21 09:00:34
+// Usage: ./intodemo
+// Description:
+
+program intodemo;
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	lop:	int8;
+	rop:	int8;
+
+// BEGIN
+begin intodemo;
+	try
+		stdout.put ("Enter a small integer between (-128 -> +127): ");
+		stdin.geti8 ();
+		mov (al, lop);
+
+		stdout.put ("Enter a second small integer value (-128 -> +127): ");
+		stdin.geti8 ();
+
+		add (lop, al);
+		into ();
+
+		stdout.put ("The eight-bit sum is ", (type int8 al), nl);
+
+	exception (ex.ConversionError)
+		stdout.put ("You entered illegal characters in the number", nl);
+
+	exception (ex.ValueOutOfRange)
+		stdout.put ("The value must be in the range of -128 -> +127", nl);
+
+	exception (ex.IntoInstr)
+		stdout.put ("The sum of the two values is outside the range -128 -> +127", nl);
+
+	endtry;
+
+// END
+end intodemo;
+
