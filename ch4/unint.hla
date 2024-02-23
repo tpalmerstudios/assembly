@@ -1,0 +1,21 @@
+// Author: Tim Palmer
+// Created On: 2024-02-22 01:45:34
+// Last Modified: 2024-02-22 01:45:34
+// Usage: ./unint
+// Description:
+program unint;
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	uninitialized:	pointer to byte;
+
+// BEGIN
+begin unint;
+	mov (uninitialized, ebx);
+	mov ( [ebx], al);
+	stdout.put ("Value at address uninitialized = 0x", al, nl);
+
+// END
+end unint;
+

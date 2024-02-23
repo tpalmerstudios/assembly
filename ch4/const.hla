@@ -1,0 +1,82 @@
+// Author: Tim Palmer
+// Created On: 2024-02-21 10:25:05
+// Last Modified: 2024-02-21 10:25:05
+// Usage: ./constdemo
+// Description:
+
+program constdemo;
+#include ("stdlib.hhf")
+
+// VARIABLES
+const
+	memAllocate	:= 4000000;
+	numDWords	:= memAllocate div 4;
+	misalign	:= 62;
+
+	mainRep		:= 10000;
+	dataRep		:= 999900;
+
+	lineSize	:= 16;
+
+// BEGIN
+begin constdemo;
+	stdout.put ("Memory Alignment Exercise", nl, nl);
+	stdout.put ("Using a watch (stopwatch), time the execution of", nl)
+	stdout.put ("the following code to determine how many seconds", nl);
+	stdout.put ("it takes to execute.", nl, nl);
+	stdout.put ("Press ENTER to begin timing the code: ");
+
+	mem.alloc (memAllocate);
+
+	mov (numDWords, ecx);
+	repeat
+		dec (ecx);
+		mov (0, (type dword [eax+ecx*4]));
+	until (!ecx);
+
+	stdin.readLn ();
+	mov (mainRep, edx);
+	add (misalign, eax);
+
+	repeat
+		mov (dataRep, ecx);
+		align (lineSize);
+
+		repeat
+			sub (4, ecx);
+			mov ( [eax+ecx*4], ebx);
+			mov ( [eax+ecx*4], ebx);
+			mov ( [eax+ecx*4], ebx);
+			mov ( [eax+ecx*4], ebx);
+		until (!ecx);
+		dec (edx);
+
+	until (!edx);
+
+	stdout.put (stdio.bell, "Stop timing and record time spent", nl, nl);
+
+	stdout.put ("Press ENTER again to begin timing access to aligned variable: ");
+	stdin.readLn ();
+
+	mov (mainRep, edx);
+	sub (misalign, eax);
+	repeat
+		mov (dataRep, ecx);
+		align (lineSize);
+		repeat
+			sub (4, ecx);
+			mov ( [eax+ecx*4], ebx);
+			mov ( [eax+ecx*4], ebx);
+			mov ( [eax+ecx*4], ebx);
+			mov ( [eax+ecx*4], ebx);
+
+		until (!ecx);
+		dec (edx);
+
+	until (!edx);
+	stdout.put (stdio.bell, "Stop timing and record time spent", nl, nl);
+	mem.free (eax);
+
+// END
+end constdemo;
+

@@ -1,0 +1,32 @@
+// Author: Tim Palmer
+// Created On: 2024-02-21 11:21:02
+// Last Modified: 2024-02-21 11:21:02
+// Usage: ./valdemo
+// Description:
+
+program valdemo;
+#include ("stdlib.hhf")
+
+// VARIABLES
+val
+	notConst	:= 0;
+
+// BEGIN
+begin valdemo;
+	mov (notConst, eax);
+	stdout.put ("EAX = ", (type uns32 eax), nl);
+
+	?notConst	:= 10;
+	mov (notConst, eax);
+	stdout.put ("EAX = ", (type uns32 eax), nl);
+
+	?notConst	:= 20;
+	mov (notConst, eax);
+	stdout.put ("EAX = ", (type uns32 eax), nl);
+
+	?notConst	:= 30;
+	mov (notConst, eax);
+	stdout.put ("EAX = ", (type uns32 eax), nl);
+// END
+end valdemo;
+

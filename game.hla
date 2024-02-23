@@ -1,0 +1,25 @@
+// Author: Tim Palmer
+// Created On: 2024-02-22 01:33:29
+// Last Modified: 2024-02-22 01:33:29
+// Usage: ./game
+// Description: Ideally is a 2D game with a map and character
+
+program game;
+#include ("stdlib.hhf")
+
+const
+	fullCircle	:=	360
+	PI			:=	3.141592
+	
+
+// VARIABLES
+static
+
+
+// BEGIN
+begin game;
+
+
+// END
+end game;
+
