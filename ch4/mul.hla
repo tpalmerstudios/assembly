@@ -1,0 +1,23 @@
+// Author: Tim Palmer
+// Created On: 2024-02-25 02:58:47
+// Last Modified: 2024-02-25 02:58:47
+// Usage: ./multiplication
+// Description:
+
+program multiplication;
+
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	// Pseudo code for what I need to do:
+	// Find the position of the highest 
+
+
+// BEGIN
+begin multiplication;
+
+
+// END
+end multiplication;
+

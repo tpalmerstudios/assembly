@@ -23,7 +23,7 @@ begin boundDemo;
 			stdin.geti32 ();
 
 			mov (eax, input);
-			bound (eax, 1, 30);
+			bound (eax, 1, 10);
 			mov (true, good);
 		exception (ex.ConversionError)
 			stdout.put ("Illegal numeric format, re-enter", nl);

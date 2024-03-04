@@ -1,0 +1,29 @@
+// Author: Tim Palmer
+// Created On: 2024-02-22 19:43:29
+// Last Modified: 2024-02-22 19:43:29
+// Usage: ./memalloc
+// Description: Try to get a user input of a size and allocate that amount of bytes
+
+program memalloc;
+#include ("stdlib.hhf")
+
+// VARIABLES
+static
+	input:		int32;
+	allocP:		pointer to byte;
+
+// BEGIN
+begin memalloc;
+	stdout.put ("Input an amount of data to allocate: ");
+	stdin.flushInput ();
+	stdin.geti32 ();
+	mov (eax, input);
+	stdout.put ("You put: ", input, " aka 0x", eax, nl);
+	mem.alloc (input);
+	push (eax);
+	pop (allocP);
+	mem.free (allocP);
+	stdout.put ("EAX contains: 0x", eax, nl);
+// END
+end memalloc;
+
