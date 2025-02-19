@@ -1,6 +1,10 @@
 # assembly
 
-Currently working through AoA (Art of Assembly v2) with HLA
+Currently working through
+- "Programming from the Ground Up"
+- "Micro-Computer Systems: The 8086/8088 Family"
+- "IBM PC Assembly Language and Programming"
+- And any other books someone would like to recommend to me
 
 then
 
