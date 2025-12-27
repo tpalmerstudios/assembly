@@ -1,5 +1,5 @@
 # assembly
-
+On Hold Until I have C mastery. Want to wait until I am confident in that
 Currently working through
 - "Programming from the Ground Up"
 - "Micro-Computer Systems: The 8086/8088 Family"
